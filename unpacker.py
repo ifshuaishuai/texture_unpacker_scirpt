@@ -39,8 +39,8 @@ def frames_from_data(filename, ext):
                 frame['offset'] = frame['spriteOffset']
 
             rectlist = to_list(frame['frame'])
-            width = int(rectlist[3] if frame['rotated'] else rectlist[2])
-            height = int(rectlist[2] if frame['rotated'] else rectlist[3])
+            width = int(rectlist[2])
+            height = int(rectlist[3])
             frame['box'] = (
                 int(rectlist[0]),
                 int(rectlist[1]),
@@ -71,7 +71,7 @@ def frames_from_data(filename, ext):
                     int((real_sizelist[1] + height) / 2 - offset_y)
                 )
         return frames
-        
+
     elif ext == '.json':
         json_data = open(data_filename)
         data = json.load(json_data)
